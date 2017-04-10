@@ -12,10 +12,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/Node/index.html">
 <meta property="og:site_name" content="mahggo">
 <meta property="og:description" content="Linux Node">
-<meta property="og:updated_time" content="2017-04-09T10:42:55.465Z">
+<meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/node.png">
+<meta property="og:updated_time" content="2017-04-10T14:14:48.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOs环境安装Node">
 <meta name="twitter:description" content="Linux Node">
+<meta name="twitter:image" content="http://oo6is6uyg.bkt.clouddn.com/node.png">
   
     <link rel="alternate" href="/atom.xml" title="mahggo" type="application/atom+xml">
   
@@ -95,11 +97,12 @@
 <p>More info: <a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载node</a></p>
 <h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.xz获得tar包</span></div><div class="line">$ xz <span class="_">-d</span> node-v6.10.2-linux-x86.tar.xz</div><div class="line"><span class="comment"># 解压tar包</span></div><div class="line">$ tar zxvf node-v6.10.2-linux-x86.tar</div></pre></td></tr></table></figure>
 <h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/your_path/node-v6.10.2-linux-x86/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看Node</span></div><div class="line">$ node --help</div><div class="line"><span class="comment"># 一起安装的npm</span></div><div class="line">$ npm --help</div></pre></td></tr></table></figure>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/node.png" alt="添加bin目录到环境变量"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/09/Node/" data-id="cj1akopxf0001owv9w0abq076" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/09/Node/" data-id="cj1c8uzij0001qwv9nvmi4zdl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
@@ -178,6 +181,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/10/Lamp/">CentOs安装Lamp</a>
+          </li>
         
           <li>
             <a href="/2017/04/09/git/">CentOs安装Git</a>

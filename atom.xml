@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>mahggo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-04-10T14:57:08.437Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>hong ma</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOs安装Lamp</title>
+    <link href="http://yoursite.com/2017/04/10/Lamp/"/>
+    <id>http://yoursite.com/2017/04/10/Lamp/</id>
+    <published>2017-04-10T10:13:48.000Z</published>
+    <updated>2017-04-10T14:57:08.437Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Linux下编译安装apache2-4-php5-6-mysql5-6"><a href="#Linux下编译安装apache2-4-php5-6-mysql5-6" class="headerlink" title="Linux下编译安装apache2.4,php5.6,mysql5.6"></a>Linux下编译安装apache2.4,php5.6,mysql5.6</h2><a id="more"></a>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install gcc gcc-c++ -y</div></pre></td></tr></table></figure>
+<h3 id="安装apr"><a href="#安装apr" class="headerlink" title="安装apr"></a>安装apr</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf apr-1.5.2.tar.gz</div><div class="line">$ <span class="built_in">cd</span> apr-1.5.2</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr-1.5.2</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装apr-util"><a href="#安装apr-util" class="headerlink" title="安装apr-util"></a>安装apr-util</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf apr-util-1.5.4.tar.gz</div><div class="line">$ <span class="built_in">cd</span> apr-util-1.5.4</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr-util-1.5.4 --with-apr=/usr/<span class="built_in">local</span>/apr-1.5.2</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装pcre"><a href="#安装pcre" class="headerlink" title="安装pcre"></a>安装pcre</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf pcre-8.39.tar.gz</div><div class="line">$ <span class="built_in">cd</span> pcre-8.39</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/pcre-8.39</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf httpd-2.4.20.tar.gz</div><div class="line">$ <span class="built_in">cd</span> httpd-2.4.20</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apache-2.4.20 --enable-so --with-apr=/usr/<span class="built_in">local</span>/apr-1.5.2 --with-apr-util=/usr/<span class="built_in">local</span>/apr-util-1.5.4 --with-pcre=/usr/<span class="built_in">local</span>/pcre-8.39</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装PHP（Apache模块）"><a href="#安装PHP（Apache模块）" class="headerlink" title="安装PHP（Apache模块）"></a>安装PHP（Apache模块）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 依赖</span></div><div class="line">$ yum install gcc gcc-c++ libxml2 libxml2-devel autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel  zlib zlib-devel glibc glibc-devel glib2 glib2-devel libevent</div><div class="line"><span class="comment"># 配置,先编译mysql,gd扩展</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/php-5.6.22 --with-apxs2=/usr/<span class="built_in">local</span>/apache-2.4.20/bin/apxs --with-pdo-mysql --with-mysql --with-gd </div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装Mysql"><a href="#安装Mysql" class="headerlink" title="安装Mysql"></a>安装Mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 依赖</span></div><div class="line">$ yum install install gcc gcc-c++ cmake ncurses-devel</div><div class="line">$ tar zxvf mysql-5.6.31.tar.gz </div><div class="line"><span class="comment"># 使用cmake工具编译</span></div><div class="line">$ cmake . -DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql-5.6.31 -DMYSQL_DATADIR=/usr/<span class="built_in">local</span>/mysql-5.6.31/data </div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h4 id="添加mysql用户"><a href="#添加mysql用户" class="headerlink" title="添加mysql用户"></a>添加mysql用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ groupadd mysql </div><div class="line"><span class="comment"># 添加mysql用户同时制定用户组</span></div><div class="line">$ useradd -g mysql mysql</div></pre></td></tr></table></figure>
+<h4 id="mysqld守护进程"><a href="#mysqld守护进程" class="headerlink" title="mysqld守护进程"></a>mysqld守护进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cp /usr/<span class="built_in">local</span>/mysql-5.6.31/support-files/mysql.server  /etc/init.d/mysqld</div><div class="line">$ chmode a+rx mysqld </div><div class="line">$ chkconfig --list mysqld</div><div class="line">$ chkconfig --add mysqld</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://www.cnblogs.com/panjun-Donet/archive/2010/08/10/1796873.html" target="_blank" rel="external">chkconfig</a></p>
+<h3 id="httpd守护进程"><a href="#httpd守护进程" class="headerlink" title="httpd守护进程"></a>httpd守护进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cp /usr/<span class="built_in">local</span>/apache-2.4.20/bin/apachectl  /etc/init.d/httd</div><div class="line">$ vi /etc/init.d/httd</div><div class="line"><span class="comment"># 添加</span></div><div class="line"><span class="comment"># chkconfig 235 65 85</span></div><div class="line"><span class="comment"># description user add hpptd service</span></div></pre></td></tr></table></figure>
+<h3 id="配置php基本设置"><a href="#配置php基本设置" class="headerlink" title="配置php基本设置"></a>配置php基本设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 去php源码目录复制</span></div><div class="line">$ cp php-ini.development /usr/<span class="built_in">local</span>/php5.6.22/lib/php.ini</div><div class="line"><span class="comment"># 设置时间</span></div><div class="line">$ vi  /usr/<span class="built_in">local</span>/php5.6.22/lib/php.ini</div></pre></td></tr></table></figure>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/date.png" alt="设置时间"></p>
+<h3 id="配置apache基本设置"><a href="#配置apache基本设置" class="headerlink" title="配置apache基本设置"></a>配置apache基本设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ vi /conf/httpd.conf </div><div class="line">$ &lt;FilesMatch \.php$&gt;</div><div class="line">$	SetHandler application/x-httpd-php</div><div class="line">$ &lt;/FilesMatch&gt;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      Linux
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOs安装Git</title>
+    <link href="http://yoursite.com/2017/04/09/git/"/>
+    <id>http://yoursite.com/2017/04/09/git/</id>
+    <published>2017-04-09T10:13:48.000Z</published>
+    <updated>2017-04-09T10:54:29.770Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://github.com/git/git/releases" target="_blank" rel="external">下载git</a></p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install  gcc gcc-c++ curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel -y</div></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.gz</span></div><div class="line">$ tar zxvf git-2.12.2.tar.gz</div></pre></td></tr></table></figure>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成配置文件</span></div><div class="line">$ <span class="built_in">cd</span> git-2.12.2 </div><div class="line">$ make configure</div><div class="line"><span class="comment"># 指定安装目录</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/git</div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/usr/local/git/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看git</span></div><div class="line">$ git --version</div></pre></td></tr></table></figure>
+<h3 id="添加git账号"><a href="#添加git账号" class="headerlink" title="添加git账号"></a>添加git账号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ groupadd git </div><div class="line">$ useradd -g git git</div><div class="line"><span class="comment"># 为git账号添加密码</span></div><div class="line">$ passwd git</div></pre></td></tr></table></figure>
+<h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/git</div><div class="line">$ chown git:git git</div><div class="line"><span class="comment"># 生成 密钥 -t指定算法</span></div><div class="line">$ ssh-keygen -t rsa</div><div class="line">$ mv /用户/.ssh/id_rsa.pub /用户/.ssh/authorized_keys</div><div class="line">$ chmod 600 /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 把你的ssh公钥加进authorized_keys</span></div><div class="line">$ vim /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 创建远程仓库</span></div><div class="line">$ <span class="built_in">cd</span> ~/git &amp;&amp; git init --bare blog.git</div><div class="line"><span class="comment"># 在客户端克隆</span></div><div class="line">$ git <span class="built_in">clone</span> ssh://git@ip:port/用户/git/blog.git</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      Linux Git
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOs环境安装Node</title>
+    <link href="http://yoursite.com/2017/04/09/Node/"/>
+    <id>http://yoursite.com/2017/04/09/Node/</id>
+    <published>2017-04-09T07:13:48.000Z</published>
+    <updated>2017-04-10T14:14:48.277Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="获得源码包-Latest-LTS-Version-v6-10-2-includes-npm-3-10-10"><a href="#获得源码包-Latest-LTS-Version-v6-10-2-includes-npm-3-10-10" class="headerlink" title="获得源码包 Latest LTS Version: v6.10.2 (includes npm 3.10.10)"></a>获得源码包 Latest LTS Version: v6.10.2 (includes npm 3.10.10)</h3><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x86.tar.xz</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载node</a></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.xz获得tar包</span></div><div class="line">$ xz <span class="_">-d</span> node-v6.10.2-linux-x86.tar.xz</div><div class="line"><span class="comment"># 解压tar包</span></div><div class="line">$ tar zxvf node-v6.10.2-linux-x86.tar</div></pre></td></tr></table></figure>
+<h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/your_path/node-v6.10.2-linux-x86/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看Node</span></div><div class="line">$ node --help</div><div class="line"><span class="comment"># 一起安装的npm</span></div><div class="line">$ npm --help</div></pre></td></tr></table></figure>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/node.png" alt="添加bin目录到环境变量"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Linux Node
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/04/09/hello-world/"/>
+    <id>http://yoursite.com/2017/04/09/hello-world/</id>
+    <published>2017-04-09T05:51:52.301Z</published>
+    <updated>2017-04-09T05:51:52.302Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

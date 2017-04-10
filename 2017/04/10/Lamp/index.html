@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CentOs安装Lamp | mahggo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOs安装Lamp">
+<meta property="og:url" content="http://yoursite.com/2017/04/10/Lamp/index.html">
+<meta property="og:site_name" content="mahggo">
+<meta property="og:description" content="Linux">
+<meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/date.png">
+<meta property="og:updated_time" content="2017-04-10T14:57:08.437Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOs安装Lamp">
+<meta name="twitter:description" content="Linux">
+<meta name="twitter:image" content="http://oo6is6uyg.bkt.clouddn.com/date.png">
+  
+    <link rel="alternate" href="/atom.xml" title="mahggo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">mahggo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Lamp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/10/Lamp/" class="article-date">
+  <time datetime="2017-04-10T10:13:48.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOs安装Lamp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux下编译安装apache2-4-php5-6-mysql5-6"><a href="#Linux下编译安装apache2-4-php5-6-mysql5-6" class="headerlink" title="Linux下编译安装apache2.4,php5.6,mysql5.6"></a>Linux下编译安装apache2.4,php5.6,mysql5.6</h2><a id="more"></a>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install gcc gcc-c++ -y</div></pre></td></tr></table></figure>
+<h3 id="安装apr"><a href="#安装apr" class="headerlink" title="安装apr"></a>安装apr</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf apr-1.5.2.tar.gz</div><div class="line">$ <span class="built_in">cd</span> apr-1.5.2</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr-1.5.2</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装apr-util"><a href="#安装apr-util" class="headerlink" title="安装apr-util"></a>安装apr-util</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf apr-util-1.5.4.tar.gz</div><div class="line">$ <span class="built_in">cd</span> apr-util-1.5.4</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr-util-1.5.4 --with-apr=/usr/<span class="built_in">local</span>/apr-1.5.2</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装pcre"><a href="#安装pcre" class="headerlink" title="安装pcre"></a>安装pcre</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf pcre-8.39.tar.gz</div><div class="line">$ <span class="built_in">cd</span> pcre-8.39</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/pcre-8.39</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf httpd-2.4.20.tar.gz</div><div class="line">$ <span class="built_in">cd</span> httpd-2.4.20</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apache-2.4.20 --enable-so --with-apr=/usr/<span class="built_in">local</span>/apr-1.5.2 --with-apr-util=/usr/<span class="built_in">local</span>/apr-util-1.5.4 --with-pcre=/usr/<span class="built_in">local</span>/pcre-8.39</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装PHP（Apache模块）"><a href="#安装PHP（Apache模块）" class="headerlink" title="安装PHP（Apache模块）"></a>安装PHP（Apache模块）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 依赖</span></div><div class="line">$ yum install gcc gcc-c++ libxml2 libxml2-devel autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel  zlib zlib-devel glibc glibc-devel glib2 glib2-devel libevent</div><div class="line"><span class="comment"># 配置,先编译mysql,gd扩展</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/php-5.6.22 --with-apxs2=/usr/<span class="built_in">local</span>/apache-2.4.20/bin/apxs --with-pdo-mysql --with-mysql --with-gd </div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="安装Mysql"><a href="#安装Mysql" class="headerlink" title="安装Mysql"></a>安装Mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 依赖</span></div><div class="line">$ yum install install gcc gcc-c++ cmake ncurses-devel</div><div class="line">$ tar zxvf mysql-5.6.31.tar.gz </div><div class="line"><span class="comment"># 使用cmake工具编译</span></div><div class="line">$ cmake . -DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql-5.6.31 -DMYSQL_DATADIR=/usr/<span class="built_in">local</span>/mysql-5.6.31/data </div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h4 id="添加mysql用户"><a href="#添加mysql用户" class="headerlink" title="添加mysql用户"></a>添加mysql用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ groupadd mysql </div><div class="line"><span class="comment"># 添加mysql用户同时制定用户组</span></div><div class="line">$ useradd -g mysql mysql</div></pre></td></tr></table></figure>
+<h4 id="mysqld守护进程"><a href="#mysqld守护进程" class="headerlink" title="mysqld守护进程"></a>mysqld守护进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cp /usr/<span class="built_in">local</span>/mysql-5.6.31/support-files/mysql.server  /etc/init.d/mysqld</div><div class="line">$ chmode a+rx mysqld </div><div class="line">$ chkconfig --list mysqld</div><div class="line">$ chkconfig --add mysqld</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://www.cnblogs.com/panjun-Donet/archive/2010/08/10/1796873.html" target="_blank" rel="external">chkconfig</a></p>
+<h3 id="httpd守护进程"><a href="#httpd守护进程" class="headerlink" title="httpd守护进程"></a>httpd守护进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cp /usr/<span class="built_in">local</span>/apache-2.4.20/bin/apachectl  /etc/init.d/httd</div><div class="line">$ vi /etc/init.d/httd</div><div class="line"><span class="comment"># 添加</span></div><div class="line"><span class="comment"># chkconfig 235 65 85</span></div><div class="line"><span class="comment"># description user add hpptd service</span></div></pre></td></tr></table></figure>
+<h3 id="配置php基本设置"><a href="#配置php基本设置" class="headerlink" title="配置php基本设置"></a>配置php基本设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 去php源码目录复制</span></div><div class="line">$ cp php-ini.development /usr/<span class="built_in">local</span>/php5.6.22/lib/php.ini</div><div class="line"><span class="comment"># 设置时间</span></div><div class="line">$ vi  /usr/<span class="built_in">local</span>/php5.6.22/lib/php.ini</div></pre></td></tr></table></figure>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/date.png" alt="设置时间"></p>
+<h3 id="配置apache基本设置"><a href="#配置apache基本设置" class="headerlink" title="配置apache基本设置"></a>配置apache基本设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ vi /conf/httpd.conf </div><div class="line">$ &lt;FilesMatch \.php$&gt;</div><div class="line">$	SetHandler application/x-httpd-php</div><div class="line">$ &lt;/FilesMatch&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/10/Lamp/" data-id="cj1c8uzi90000qwv9akhtg0ti" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/09/git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CentOs安装Git
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/10/Lamp/">CentOs安装Lamp</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/09/git/">CentOs安装Git</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/09/Node/">CentOs环境安装Node</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/09/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 hong ma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
