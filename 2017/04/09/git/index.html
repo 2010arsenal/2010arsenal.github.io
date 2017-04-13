@@ -96,7 +96,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/git/index.html">
 <meta property="og:site_name" content="mahggo">
 <meta property="og:description" content="Linux Git">
-<meta property="og:updated_time" content="2017-04-09T10:54:29.770Z">
+<meta property="og:updated_time" content="2017-04-13T12:12:02.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOs安装Git">
 <meta name="twitter:description" content="Linux Git">
@@ -108,7 +108,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -158,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -199,7 +199,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -209,7 +209,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -286,7 +286,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-09T18:13:48+08:00">
                 2017-04-09
@@ -307,7 +307,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -350,10 +350,10 @@
       
 
       
-        <h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
+        <h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://github.com/git/git/releases" target="_blank" rel="external">下载git</a></p>
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install  gcc gcc-c++ curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel -y</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.gz</span></div><div class="line">$ tar zxvf git-2.12.2.tar.gz</div></pre></td></tr></table></figure>
 <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成配置文件</span></div><div class="line">$ <span class="built_in">cd</span> git-2.12.2 </div><div class="line">$ make configure</div><div class="line"><span class="comment"># 指定安装目录</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/git</div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
 <h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/usr/local/git/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看git</span></div><div class="line">$ git --version</div></pre></td></tr></table></figure>
@@ -463,10 +463,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -487,7 +487,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -498,7 +498,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -509,7 +509,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -582,7 +582,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
@@ -627,6 +627,8 @@
   
 
 
+  
+
 
 
 
@@ -652,6 +654,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
   
   <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
