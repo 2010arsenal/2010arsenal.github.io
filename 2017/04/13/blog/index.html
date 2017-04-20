@@ -91,14 +91,14 @@
 
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOs安装Git">
-<meta property="og:url" content="http://yoursite.com/2017/04/13/git/index.html">
+<meta property="og:title" content="HEXO搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/blog/index.html">
 <meta property="og:site_name" content="mahggo">
-<meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/0.jpg">
-<meta property="og:updated_time" content="2017-04-13T12:33:55.524Z">
+<meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/hexo.png">
+<meta property="og:updated_time" content="2017-04-13T13:15:20.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOs安装Git">
-<meta name="twitter:image" content="http://oo6is6uyg.bkt.clouddn.com/0.jpg">
+<meta name="twitter:title" content="HEXO搭建个人博客">
+<meta name="twitter:image" content="http://oo6is6uyg.bkt.clouddn.com/hexo.png">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title> CentOs安装Git | mahggo </title>
+  <title> HEXO搭建个人博客 | mahggo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -239,7 +239,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/git/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hong ma">
@@ -260,7 +260,7 @@
             
             
               
-                CentOs安装Git
+                HEXO搭建个人博客
               
             
           </h1>
@@ -275,7 +275,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-13T20:33:55+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-13T21:15:20+08:00">
                 2017-04-13
               </time>
             
@@ -311,14 +311,21 @@
       
 
       
-        <p><img src="http://oo6is6uyg.bkt.clouddn.com/0.jpg" alt="Git"><br><a id="more"></a></p>
-<h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
+        <p><img src="http://oo6is6uyg.bkt.clouddn.com/hexo.png" alt="hexo"><br><a id="more"></a></p>
+<h2 id="什么是HEXO"><a href="#什么是HEXO" class="headerlink" title="什么是HEXO"></a>什么是HEXO</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>是一款基于<a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>的快速、简洁且高效的博客框架</p>
+<blockquote>
+<ul>
+<li>超快速度 : Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
+<li>支持 Markdown : Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</li>
+</ul>
+</blockquote>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://github.com/git/git/releases" target="_blank" rel="external">下载git</a></p>
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install  gcc gcc-c++ curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel -y</div></pre></td></tr></table></figure>
 <h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.gz</span></div><div class="line">$ tar zxvf git-2.12.2.tar.gz</div></pre></td></tr></table></figure>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成配置文件</span></div><div class="line">$ <span class="built_in">cd</span> git-2.12.2 </div><div class="line">$ make configure</div><div class="line"><span class="comment"># 指定安装目录</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/git</div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成配置文件</span></div><div class="line">$ <span class="built_in">cd</span> git-2.12.2</div><div class="line">$ make configure</div><div class="line"><span class="comment"># 指定安装目录</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/git</div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
 <h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/usr/local/git/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看git</span></div><div class="line">$ git --version</div></pre></td></tr></table></figure>
-<h3 id="添加git账号"><a href="#添加git账号" class="headerlink" title="添加git账号"></a>添加git账号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ groupadd git </div><div class="line">$ useradd -g git git</div><div class="line"><span class="comment"># 为git账号添加密码</span></div><div class="line">$ passwd git</div></pre></td></tr></table></figure>
+<h3 id="添加git账号"><a href="#添加git账号" class="headerlink" title="添加git账号"></a>添加git账号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ groupadd git</div><div class="line">$ useradd -g git git</div><div class="line"><span class="comment"># 为git账号添加密码</span></div><div class="line">$ passwd git</div></pre></td></tr></table></figure>
 <h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/git</div><div class="line">$ chown git:git git</div><div class="line"><span class="comment"># 生成 密钥 -t指定算法</span></div><div class="line">$ ssh-keygen -t rsa</div><div class="line">$ mv /用户/.ssh/id_rsa.pub /用户/.ssh/authorized_keys</div><div class="line">$ chmod 600 /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 把你的ssh公钥加进authorized_keys</span></div><div class="line">$ vim /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 创建远程仓库</span></div><div class="line">$ <span class="built_in">cd</span> ~/git &amp;&amp; git init --bare blog.git</div><div class="line"><span class="comment"># 在客户端克隆</span></div><div class="line">$ git <span class="built_in">clone</span> ssh://git@ip:port/用户/git/blog.git</div></pre></td></tr></table></figure>
       
     </div>
@@ -355,18 +362,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/13/Node/" rel="next" title="CentOs环境安装Node">
-                <i class="fa fa-chevron-left"></i> CentOs环境安装Node
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/Lamp/" rel="prev" title="CentOs安装Lamp">
-                CentOs安装Lamp <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/13/Node/" rel="prev" title="CentOs环境安装Node">
+                CentOs环境安装Node <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -503,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获得源码包-这里是GitHub上的最新版本"><span class="nav-number">1.</span> <span class="nav-text">获得源码包 这里是GitHub上的最新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖"><span class="nav-number">2.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">3.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将bin文件夹添加到用户环境变量"><span class="nav-number">5.</span> <span class="nav-text">将bin文件夹添加到用户环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加git账号"><span class="nav-number">6.</span> <span class="nav-text">添加git账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建远程仓库"><span class="nav-number">7.</span> <span class="nav-text">创建远程仓库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是HEXO"><span class="nav-number">1.</span> <span class="nav-text">什么是HEXO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖"><span class="nav-number">2.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">2.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">2.3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将bin文件夹添加到用户环境变量"><span class="nav-number">2.4.</span> <span class="nav-text">将bin文件夹添加到用户环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加git账号"><span class="nav-number">2.5.</span> <span class="nav-text">添加git账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建远程仓库"><span class="nav-number">2.6.</span> <span class="nav-text">创建远程仓库</span></a></li></ol></li></ol></div>
             
 
           </div>
