@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-20T11:37:15.376Z</updated>
+  <updated>2017-07-22T01:16:52.876Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,10 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CentOs安装Git</title>
+    <link href="http://yoursite.com/2017/07/22/git/"/>
+    <id>http://yoursite.com/2017/07/22/git/</id>
+    <published>2017-07-22T01:16:52.954Z</published>
+    <updated>2017-07-22T01:16:52.876Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/0.jpg" alt="Git"><br><a id="more"></a></p>
+<h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://github.com/git/git/releases" target="_blank" rel="external">下载git</a></p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install  gcc gcc-c++ curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel -y</div></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.gz</span></div><div class="line">$ tar zxvf git-2.12.2.tar.gz</div></pre></td></tr></table></figure>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成配置文件</span></div><div class="line">$ <span class="built_in">cd</span> git-2.12.2 </div><div class="line">$ make configure</div><div class="line"><span class="comment"># 指定安装目录</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/git</div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/usr/local/git/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看git</span></div><div class="line">$ git --version</div></pre></td></tr></table></figure>
+<h3 id="添加git账号"><a href="#添加git账号" class="headerlink" title="添加git账号"></a>添加git账号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ groupadd git </div><div class="line">$ useradd -g git git</div><div class="line"><span class="comment"># 为git账号添加密码</span></div><div class="line">$ passwd git</div></pre></td></tr></table></figure>
+<h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/git</div><div class="line">$ chown git:git git</div><div class="line"><span class="comment"># 生成 密钥 -t指定算法</span></div><div class="line">$ ssh-keygen -t rsa</div><div class="line">$ mv /用户/.ssh/id_rsa.pub /用户/.ssh/authorized_keys</div><div class="line">$ chmod 600 /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 把你的ssh公钥加进authorized_keys</span></div><div class="line">$ vim /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 创建远程仓库</span></div><div class="line">$ <span class="built_in">cd</span> ~/git &amp;&amp; git init --bare blog.git</div><div class="line"><span class="comment"># 在客户端克隆</span></div><div class="line">$ git <span class="built_in">clone</span> ssh://git@ip:port/用户/git/blog.git/</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oo6is6uyg.bkt.clouddn.com/0.jpg&quot; alt=&quot;Git&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>CentOs环境安装Node</title>
     <link href="http://yoursite.com/2017/04/20/Node/"/>
     <id>http://yoursite.com/2017/04/20/Node/</id>
-    <published>2017-04-20T11:37:15.374Z</published>
+    <published>2017-04-20T11:37:15.406Z</published>
     <updated>2017-04-20T11:37:15.376Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/node.jpg" alt="Git"><br><a id="more"></a></p>
@@ -51,7 +77,7 @@
     <title>HEXO搭建个人博客</title>
     <link href="http://yoursite.com/2017/04/20/blog/"/>
     <id>http://yoursite.com/2017/04/20/blog/</id>
-    <published>2017-04-20T11:36:17.867Z</published>
+    <published>2017-04-20T11:36:17.911Z</published>
     <updated>2017-04-20T11:36:17.868Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/hexo.png" alt="hexo"><br><a id="more"></a></p>
@@ -67,32 +93,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://oo6is6uyg.bkt.clouddn.com/hexo.png&quot; alt=&quot;hexo&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CentOs安装Git</title>
-    <link href="http://yoursite.com/2017/04/13/git/"/>
-    <id>http://yoursite.com/2017/04/13/git/</id>
-    <published>2017-04-13T12:33:55.522Z</published>
-    <updated>2017-04-13T12:33:55.524Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/0.jpg" alt="Git"><br><a id="more"></a></p>
-<h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://github.com/git/git/releases" target="_blank" rel="external">下载git</a></p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install  gcc gcc-c++ curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel -y</div></pre></td></tr></table></figure>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.gz</span></div><div class="line">$ tar zxvf git-2.12.2.tar.gz</div></pre></td></tr></table></figure>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成配置文件</span></div><div class="line">$ <span class="built_in">cd</span> git-2.12.2 </div><div class="line">$ make configure</div><div class="line"><span class="comment"># 指定安装目录</span></div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/git</div><div class="line"><span class="comment"># 编译</span></div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
-<h3 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/usr/local/git/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看git</span></div><div class="line">$ git --version</div></pre></td></tr></table></figure>
-<h3 id="添加git账号"><a href="#添加git账号" class="headerlink" title="添加git账号"></a>添加git账号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ groupadd git </div><div class="line">$ useradd -g git git</div><div class="line"><span class="comment"># 为git账号添加密码</span></div><div class="line">$ passwd git</div></pre></td></tr></table></figure>
-<h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/git</div><div class="line">$ chown git:git git</div><div class="line"><span class="comment"># 生成 密钥 -t指定算法</span></div><div class="line">$ ssh-keygen -t rsa</div><div class="line">$ mv /用户/.ssh/id_rsa.pub /用户/.ssh/authorized_keys</div><div class="line">$ chmod 600 /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 把你的ssh公钥加进authorized_keys</span></div><div class="line">$ vim /用户/.ssh/authorized_keys</div><div class="line"><span class="comment"># 创建远程仓库</span></div><div class="line">$ <span class="built_in">cd</span> ~/git &amp;&amp; git init --bare blog.git</div><div class="line"><span class="comment"># 在客户端克隆</span></div><div class="line">$ git <span class="built_in">clone</span> ssh://git@ip:port/用户/git/blog.git</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oo6is6uyg.bkt.clouddn.com/0.jpg&quot; alt=&quot;Git&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -140,7 +140,7 @@
     <title>Hello World</title>
     <link href="http://yoursite.com/2017/04/09/hello-world/"/>
     <id>http://yoursite.com/2017/04/09/hello-world/</id>
-    <published>2017-04-09T05:51:52.301Z</published>
+    <published>2017-04-09T05:51:52.355Z</published>
     <updated>2017-04-09T05:51:52.302Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
