@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-22T02:01:27.937Z</updated>
+  <updated>2017-07-30T03:53:07.695Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,22 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CentOs安装memcache</title>
-    <link href="http://yoursite.com/2017/07/22/memcached/"/>
-    <id>http://yoursite.com/2017/07/22/memcached/</id>
-    <published>2017-07-22T02:01:28.015Z</published>
-    <updated>2017-07-22T02:01:27.937Z</updated>
+    <title>晴天</title>
+    <link href="http://yoursite.com/2017/07/30/sunday/"/>
+    <id>http://yoursite.com/2017/07/30/sunday/</id>
+    <published>2017-07-30T03:53:07.762Z</published>
+    <updated>2017-07-30T03:53:07.695Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg" alt="Git"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg" alt="Git"><br><a id="more"></a></p>
+<h2 id="晴天"><a href="#晴天" class="headerlink" title="晴天"></a>晴天</h2><div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div>
+		<script>
+			new APlayer({
+				element: document.getElementById("aplayer0"),
+				narrow: false,
+				autoplay: false,
+				showlrc: 0,
+				music: {
+					title: "晴天",
+					author: "周杰伦",
+					url: "http://oo6is6uyg.bkt.clouddn.com/0503%E6%99%B4%E5%A4%A9.mp3",
+					pic: "http://oo6is6uyg.bkt.clouddn.com/qingtian.jpg",
+				}
+			});
+		</script>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oo6is6uyg.bkt.clouddn.com/web_6.jpg&quot; alt=&quot;Git&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CentOs安装memcache</title>
+    <link href="http://yoursite.com/2017/07/23/memcached/"/>
+    <id>http://yoursite.com/2017/07/23/memcached/</id>
+    <published>2017-07-23T12:59:31.826Z</published>
+    <updated>2017-07-23T12:59:31.770Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg" alt="Git"><br><a id="more"></a></p>
 <blockquote>
 <p>Memcached是一个自由开源的，高性能，分布式内存对象缓存系统。<br>  Memcached是一种基于内存的key-value存储，用来存储小块的任意数据（字符串、对象）。这些数据可以是数据库调用、API调用或者是页面渲染的结果。<br>  一般的使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。<br>  Memcached 官网：<a href="http://memcached.org/memcached.md" target="_blank" rel="external">memcached.org</a></p>
 </blockquote>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装依赖</span></div><div class="line">yum install libevent libevent-devel -y</div><div class="line"></div><div class="line"><span class="comment"># 下载最新版本</span></div><div class="line">wget http://memcached.org/latest </div><div class="line">                 </div><div class="line"><span class="comment"># 解压源码</span></div><div class="line">tar -zxvf latest  </div><div class="line">              </div><div class="line"><span class="comment"># 进入目录</span></div><div class="line"><span class="built_in">cd</span> memcached-1.x.x</div><div class="line">                                 </div><div class="line"><span class="comment"># 配置</span></div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/memcached          </div><div class="line"></div><div class="line"><span class="comment">#  编译</span></div><div class="line">make &amp;&amp; make <span class="built_in">test</span>                                 </div><div class="line"></div><div class="line"><span class="comment">#   安装 </span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">memcached <span class="_">-d</span> -m 100M -u nobody <span class="_">-l</span> 127.0.0.1 -p 12000 -c 1000 -P /tmp/memcached.pid</div><div class="line"></div><div class="line"><span class="_">-d</span> 选项是启动一个守护进程， </div><div class="line">-m 是分配给Memcache使用的内存数量，单位是MB，这里是100MB </div><div class="line">-u 是运行Memcache的用户，这里是root </div><div class="line"><span class="_">-l</span> 是监听的服务器IP地址，如果有多个地址的话，这里指定了服务器的IP地址127.0.0.1 </div><div class="line">-p 是设置Memcache监听的端口，这里设置了12000，最好是1024以上的端口 </div><div class="line">-c 选项是最大运行的并发连接数，默认是1024，这里设置了1000，按照你服务器的负载量来设定 </div><div class="line">-P 是设置保存Memcache的pid文件</div></pre></td></tr></table></figure>
 <p><img src="http://oo6is6uyg.bkt.clouddn.com/memcached_1.png" alt="image"></p>
-<p>##关闭<br>    kill <code>cat /tmp/memcached.pid</code></p>
-<p>##连接<br>    telnet 127.0.0.1</p>
-<p><img src="http://oo6is6uyg.bkt.clouddn.com/memcached_2.png" alt="image"></p>
+<h2 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h2><pre><code>kill `cat /tmp/memcached.pid`
+</code></pre><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><pre><code>telnet 127.0.0.1
+</code></pre><p><img src="http://oo6is6uyg.bkt.clouddn.com/memcached_2.png" alt="image"></p>
 <p><a href="http://blog.sina.com.cn/s/blog_493a845501013ei0.html" target="_blank" rel="external">分布式缓存-Memcached</a></p>
 ]]></content>
     
@@ -51,7 +85,7 @@
     <published>2017-07-22T01:16:52.954Z</published>
     <updated>2017-07-22T01:16:52.876Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/0.jpg" alt="Git"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://oo6is6uyg.bkt.clouddn.com/0.jpg" alt="Git"><br><a id="more"></a></p>
 <h3 id="获得源码包-这里是GitHub上的最新版本"><a href="#获得源码包-这里是GitHub上的最新版本" class="headerlink" title="获得源码包 这里是GitHub上的最新版本"></a>获得源码包 这里是GitHub上的最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.12.2.tar.gz</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://github.com/git/git/releases" target="_blank" rel="external">下载git</a></p>
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install  gcc gcc-c++ curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel -y</div></pre></td></tr></table></figure>
@@ -77,7 +111,7 @@
     <published>2017-04-20T11:37:15.406Z</published>
     <updated>2017-04-20T11:37:15.376Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/node.jpg" alt="Git"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://oo6is6uyg.bkt.clouddn.com/node.jpg" alt="Git"><br><a id="more"></a></p>
 <h3 id="关于node"><a href="#关于node" class="headerlink" title="关于node"></a>关于node</h3><blockquote>
 <ul>
 <li>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</li>
@@ -109,7 +143,7 @@
     <published>2017-04-20T11:36:17.911Z</published>
     <updated>2017-04-20T11:36:17.868Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://oo6is6uyg.bkt.clouddn.com/hexo.png" alt="hexo"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://oo6is6uyg.bkt.clouddn.com/hexo.png" alt="hexo"><br><a id="more"></a></p>
 <h2 id="什么是HEXO"><a href="#什么是HEXO" class="headerlink" title="什么是HEXO"></a>什么是HEXO</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>是一款基于<a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>的快速、简洁且高效的博客框架</p>
 <blockquote>
 <ul>
@@ -135,7 +169,7 @@
     <published>2017-04-10T10:13:48.000Z</published>
     <updated>2017-04-10T14:57:08.437Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Linux下编译安装apache2-4-php5-6-mysql5-6"><a href="#Linux下编译安装apache2-4-php5-6-mysql5-6" class="headerlink" title="Linux下编译安装apache2.4,php5.6,mysql5.6"></a>Linux下编译安装apache2.4,php5.6,mysql5.6</h2><a id="more"></a>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Linux下编译安装apache2-4-php5-6-mysql5-6"><a href="#Linux下编译安装apache2-4-php5-6-mysql5-6" class="headerlink" title="Linux下编译安装apache2.4,php5.6,mysql5.6"></a>Linux下编译安装apache2.4,php5.6,mysql5.6</h2><a id="more"></a>
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install gcc gcc-c++ -y</div></pre></td></tr></table></figure>
 <h3 id="安装apr"><a href="#安装apr" class="headerlink" title="安装apr"></a>安装apr</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf apr-1.5.2.tar.gz</div><div class="line">$ <span class="built_in">cd</span> apr-1.5.2</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr-1.5.2</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
 <h3 id="安装apr-util"><a href="#安装apr-util" class="headerlink" title="安装apr-util"></a>安装apr-util</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar zxvf apr-util-1.5.4.tar.gz</div><div class="line">$ <span class="built_in">cd</span> apr-util-1.5.4</div><div class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr-util-1.5.4 --with-apr=/usr/<span class="built_in">local</span>/apr-1.5.2</div><div class="line">$ make &amp;&amp; make install</div></pre></td></tr></table></figure>
@@ -172,7 +206,7 @@
     <published>2017-04-09T05:51:52.355Z</published>
     <updated>2017-04-09T05:51:52.302Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>

@@ -92,12 +92,12 @@
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOs安装memcache">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/memcached/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/23/memcached/index.html">
 <meta property="og:site_name" content="mahggo">
 <meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg">
 <meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/memcached_1.png">
 <meta property="og:image" content="http://oo6is6uyg.bkt.clouddn.com/memcached_2.png">
-<meta property="og:updated_time" content="2017-07-22T02:01:27.937Z">
+<meta property="og:updated_time" content="2017-07-23T12:59:31.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOs安装memcache">
 <meta name="twitter:image" content="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg">
@@ -241,12 +241,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/memcached/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/memcached/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hong ma">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://oo6is6uyg.bkt.clouddn.com/acatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -277,8 +277,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-22T10:01:28+08:00">
-                2017-07-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T20:59:31+08:00">
+                2017-07-23
               </time>
             
 
@@ -313,16 +313,16 @@
       
 
       
-        <p><img src="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg" alt="Git"><br><a id="more"></a></p>
+        <script src="/assets/js/APlayer.min.js"> </script><p><img src="http://oo6is6uyg.bkt.clouddn.com/web_6.jpg" alt="Git"><br><a id="more"></a></p>
 <blockquote>
 <p>Memcached是一个自由开源的，高性能，分布式内存对象缓存系统。<br>  Memcached是一种基于内存的key-value存储，用来存储小块的任意数据（字符串、对象）。这些数据可以是数据库调用、API调用或者是页面渲染的结果。<br>  一般的使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。<br>  Memcached 官网：<a href="http://memcached.org/memcached.md" target="_blank" rel="external">memcached.org</a></p>
 </blockquote>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装依赖</span></div><div class="line">yum install libevent libevent-devel -y</div><div class="line"></div><div class="line"><span class="comment"># 下载最新版本</span></div><div class="line">wget http://memcached.org/latest </div><div class="line">                 </div><div class="line"><span class="comment"># 解压源码</span></div><div class="line">tar -zxvf latest  </div><div class="line">              </div><div class="line"><span class="comment"># 进入目录</span></div><div class="line"><span class="built_in">cd</span> memcached-1.x.x</div><div class="line">                                 </div><div class="line"><span class="comment"># 配置</span></div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/memcached          </div><div class="line"></div><div class="line"><span class="comment">#  编译</span></div><div class="line">make &amp;&amp; make <span class="built_in">test</span>                                 </div><div class="line"></div><div class="line"><span class="comment">#   安装 </span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">memcached <span class="_">-d</span> -m 100M -u nobody <span class="_">-l</span> 127.0.0.1 -p 12000 -c 1000 -P /tmp/memcached.pid</div><div class="line"></div><div class="line"><span class="_">-d</span> 选项是启动一个守护进程， </div><div class="line">-m 是分配给Memcache使用的内存数量，单位是MB，这里是100MB </div><div class="line">-u 是运行Memcache的用户，这里是root </div><div class="line"><span class="_">-l</span> 是监听的服务器IP地址，如果有多个地址的话，这里指定了服务器的IP地址127.0.0.1 </div><div class="line">-p 是设置Memcache监听的端口，这里设置了12000，最好是1024以上的端口 </div><div class="line">-c 选项是最大运行的并发连接数，默认是1024，这里设置了1000，按照你服务器的负载量来设定 </div><div class="line">-P 是设置保存Memcache的pid文件</div></pre></td></tr></table></figure>
 <p><img src="http://oo6is6uyg.bkt.clouddn.com/memcached_1.png" alt="image"></p>
-<p>##关闭<br>    kill <code>cat /tmp/memcached.pid</code></p>
-<p>##连接<br>    telnet 127.0.0.1</p>
-<p><img src="http://oo6is6uyg.bkt.clouddn.com/memcached_2.png" alt="image"></p>
+<h2 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h2><pre><code>kill `cat /tmp/memcached.pid`
+</code></pre><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><pre><code>telnet 127.0.0.1
+</code></pre><p><img src="http://oo6is6uyg.bkt.clouddn.com/memcached_2.png" alt="image"></p>
 <p><a href="http://blog.sina.com.cn/s/blog_493a845501013ei0.html" target="_blank" rel="external">分布式缓存-Memcached</a></p>
 
       
@@ -359,6 +359,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/30/sunday/" rel="next" title="晴天">
+                <i class="fa fa-chevron-left"></i> 晴天
+              </a>
             
           </div>
 
@@ -428,7 +432,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="http://oo6is6uyg.bkt.clouddn.com/acatar.jpg"
                alt="hong ma" />
           <p class="site-author-name" itemprop="name">hong ma</p>
            
@@ -440,7 +444,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -504,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭"><span class="nav-number">3.</span> <span class="nav-text">关闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">4.</span> <span class="nav-text">连接</span></a></li></ol></div>
             
 
           </div>
