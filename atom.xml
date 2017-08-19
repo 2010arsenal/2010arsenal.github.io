@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-19T09:40:59.756Z</updated>
+  <updated>2017-08-19T09:42:40.263Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>阿里云Ecs格式化和挂载数据盘</title>
     <link href="http://yoursite.com/2017/08/19/aliyun_disk/"/>
     <id>http://yoursite.com/2017/08/19/aliyun_disk/</id>
-    <published>2017-08-19T09:41:00.191Z</published>
-    <updated>2017-08-19T09:40:59.756Z</updated>
+    <published>2017-08-19T09:42:40.702Z</published>
+    <updated>2017-08-19T09:42:40.263Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><hr>
-<h2 id="阿里云Ecs格式化和挂载数据盘"><a href="#阿里云Ecs格式化和挂载数据盘" class="headerlink" title="阿里云Ecs格式化和挂载数据盘"></a>阿里云Ecs格式化和挂载数据盘</h2><h3 id="1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。"><a href="#1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。" class="headerlink" title="1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。"></a>1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。</h3><p><img src="http://oo6is6uyg.bkt.clouddn.com/aliyun-1.png" alt="image"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。"><a href="#1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。" class="headerlink" title="1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。"></a>1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。</h3><p><img src="http://oo6is6uyg.bkt.clouddn.com/aliyun-1.png" alt="image"><br><a id="more"></a></p>
 <h3 id="2-连接阿里云Ecs实例"><a href="#2-连接阿里云Ecs实例" class="headerlink" title="2.连接阿里云Ecs实例"></a>2.连接阿里云Ecs实例</h3><pre><code>df -h 
 fdisk -l
 </code></pre><blockquote>
@@ -39,8 +38,7 @@ fdisk -l
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;h2 id=&quot;阿里云Ecs格式化和挂载数据盘&quot;&gt;&lt;a href=&quot;#阿里云Ecs格式化和挂载数据盘&quot; class=&quot;headerlink&quot; title=&quot;阿里云Ecs格式化和挂载数据盘&quot;&gt;&lt;/a&gt;阿里云Ecs格式化和挂载数据盘&lt;/h2&gt;&lt;h3 id=&quot;1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。&quot;&gt;&lt;a href=&quot;#1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。&quot; class=&quot;headerlink&quot; title=&quot;1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。&quot;&gt;&lt;/a&gt;1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://oo6is6uyg.bkt.clouddn.com/aliyun-1.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;
+      &lt;h3 id=&quot;1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。&quot;&gt;&lt;a href=&quot;#1-使用管理终端，或远程连接工具，输入用户名-root-和密码登录到实例。&quot; class=&quot;headerlink&quot; title=&quot;1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。&quot;&gt;&lt;/a&gt;1.使用管理终端，或远程连接工具，输入用户名 root 和密码登录到实例。&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://oo6is6uyg.bkt.clouddn.com/aliyun-1.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;
     
     </summary>
     
