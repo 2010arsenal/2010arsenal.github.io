@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-19T09:11:06.539Z</updated>
+  <updated>2017-08-19T09:18:38.601Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Vue.js</title>
     <link href="http://yoursite.com/2017/08/19/vuenews/"/>
     <id>http://yoursite.com/2017/08/19/vuenews/</id>
-    <published>2017-08-19T09:11:06.992Z</published>
-    <updated>2017-08-19T09:11:06.539Z</updated>
+    <published>2017-08-19T09:18:39.047Z</published>
+    <updated>2017-08-19T09:18:38.601Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Vue-js简介"><a href="#Vue-js简介" class="headerlink" title="Vue.js简介"></a>Vue.js简介</h2><blockquote>
 <p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
@@ -130,6 +130,66 @@ npm run dev
 
     }
 &lt;/style&gt;
+</code></pre><p>   Newslist.vue</p>
+<pre><code>&lt;template&gt;
+    &lt;div class=&quot;newslist&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;ul class=&quot;media-list&quot;&gt;
+                &lt;li class=&quot;media&quot; v-for=&quot;article in articles&quot;&gt;
+                    &lt;div class=&quot;media-left&quot;&gt;
+                        &lt;a v-bind:href=&quot;article.url&quot; target=&quot;_blank&quot;&gt;
+                            &lt;img v-bind:src=&quot;article.urlToImage&quot; alt=&quot;&quot;&gt;
+                        &lt;/a&gt;
+
+                    &lt;/div&gt;
+                    &lt;div class=&quot;media-body&quot;&gt;
+                        &lt;h4 class=&quot;media-heading&quot;&gt;&lt;a v-bind:href=&quot;article.url&quot; target=&quot;_blank&quot;&gt;{{article.title}}&lt;/a&gt;&lt;/h4&gt;
+                        &lt;h5&gt;{{article.author}}&lt;/h5&gt;
+                        &lt;p&gt;{{article.description}}&lt;/p&gt;
+                    &lt;/div&gt;
+
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+    export default{
+        name: &apos;newslist&apos;,
+        props: [&apos;source&apos;],
+        data(){
+            return {
+                articles : []
+            }
+        },
+        methods: {
+            updateSource: function(source) {
+                this.$http.get(&apos;https://newsapi.org/v1/articles?source=&apos; + source + &apos;&amp;apikey=1126b7ebda004eb7b9d2bcae1cfcc5ba&apos;)
+                    .then((response)=&gt;{
+                        this.articles = response.data.articles;
+                    })
+            }
+        },
+        watch: {
+            source: function (val) {
+                this.updateSource(val);
+            }
+        }
+    }
+&lt;/script&gt;
+
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
+&lt;style scoped&gt;
+    .media-left img {
+        width: 128px;
+    }
+    .media {
+        border-top: 1px solid lightgray;
+        padding-top: 20px;
+    }
+&lt;/style&gt;
 </code></pre><h2 id="子组件的挂载到父组件"><a href="#子组件的挂载到父组件" class="headerlink" title="子组件的挂载到父组件"></a>子组件的挂载到父组件</h2><pre><code># 在父组件中引入子组件
 
 # ES2015 的写法
@@ -163,6 +223,56 @@ components: {
             SourceSelection,
             Newslist
         },
+</code></pre><p>SourceSelection.vue</p>
+<pre><code>&lt;template&gt;
+    &lt;div class=&quot;sourceSelection&quot;&gt;
+        &lt;div class=&quot;jumbotron&quot;&gt;
+            &lt;h2&gt;&lt;span class=&quot;glyphicon glyphicon-list-alt&quot;&gt;&lt;/span&gt;&amp;nbsp;News List&lt;/h2&gt;
+            &lt;h4&gt;Select News source&lt;/h4&gt;
+            &lt;select class=&quot;form-control&quot; v-on:change=&quot;sourceCahnged_&quot;&gt;
+                &lt;option v-for=&quot;source in sources&quot; v-bind:value=&quot;source.id&quot;&gt;{{source.name}}&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;div v-if=&quot;source&quot;&gt;
+                &lt;h6&gt;{{source.description}}&lt;/h6&gt;
+                &lt;a v-bind:href=&quot;source.url&quot; class=&quot;btn btn-primary&quot; target=&quot;_blank&quot;&gt;Go To {{source.name}} Website&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default{
+        name : &apos;sourceselection&apos;,
+        data () {
+            return {
+                sources : [],
+                source : &apos;&apos;
+            }
+
+        },
+        methods: {
+            sourceCahnged_: function (e) {
+                for( var i = 0;i&lt;this.sources.length; i++){
+                    if(this.sources[i].id == e.target.value){
+                        this.source = this.sources[i];
+                    }
+                }
+                this.$emit(&apos;sourceChanged&apos;, e.target.value);
+            }
+        },
+        created: function () {
+            this.$http.get(&apos;https://newsapi.org/v1/sources?language=en&apos;)
+                .then(response =&gt; {
+                    this.sources = response.data.sources;
+                    this.source = this.sources[0];
+                    this.$emit(&apos;sourceChanged&apos;, this.source.id);
+                });
+
+        }
+
+    }
+&lt;/script&gt;
 </code></pre><h2 id="父子组件数据传递"><a href="#父子组件数据传递" class="headerlink" title="父子组件数据传递"></a>父子组件数据传递</h2><h3 id="父组件vm写入"><a href="#父组件vm写入" class="headerlink" title="父组件vm写入"></a>父组件vm写入</h3><pre><code>data(){
        return {
            source: &quot;&quot;
