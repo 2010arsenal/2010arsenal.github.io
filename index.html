@@ -3,7 +3,7 @@
 
 
 
-<html class="theme-next pisces" lang="zh-CN">
+<html class="theme-next pisces" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,7 +102,7 @@
     motion: false,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -123,7 +123,7 @@
   <title> mahggo </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -188,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -221,6 +221,305 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/vuenews/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hong ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oo6is6uyg.bkt.clouddn.com/acatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mahggo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/19/vuenews/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T17:05:26+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="Vue-js简介"><a href="#Vue-js简介" class="headerlink" title="Vue.js简介"></a>Vue.js简介</h2><blockquote>
+<p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
+</blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="external">Vue.js文档</a></p>
+<h2 id="MVVM与Vue-js"><a href="#MVVM与Vue-js" class="headerlink" title="MVVM与Vue.js"></a>MVVM与Vue.js</h2><ul>
+<li>MVVM采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。Angular 和 Ember 都采用这种模式。<br><img src="http://oo6is6uyg.bkt.clouddn.com/bg2015020110.png" alt="image"><br><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">MVC，MVP 和 MVVM 的图示</a></li>
+</ul>
+<ul>
+<li><p>Vue.js 可以说是MVVM 架构的最佳实践，专注于 MVVM 中的 ViewModel，不仅做到了数据双向绑定，而且也是一款相对比较轻量级的JS 库，API 简洁，很容易上手。Vue的基础知识网上有现成的教程，此处不再赘述， 下面简单了解一下 Vue.js 关于双向绑定的一些实现细节：</p>
+<p>Vue.js 是采用 Object.defineProperty 的 getter 和 setter，并结合观察者模式来实现数据绑定的。当把一个普通 Javascript 对象传给 Vue 实例来作为它的 data 选项时，Vue 将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter。用户看不到 getter/setter，但是在内部它们让 Vue 追踪依赖，在属性被访问和修改时通知变化。</p>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/849589-20161106211631549-2019592745.png" alt="image"></p>
+</li>
+</ul>
+<p>  observer 数据监听器，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者，内部采用Object.defineProperty的getter和setter来实现。</p>
+<p>  Compile 指令解析器，它的作用对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数。</p>
+<p>  Watcher 订阅者， 作为连接 Observer 和 Compile 的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数。</p>
+<p>  Dep 消息订阅器，内部维护了一个数组，用来收集订阅者（Watcher），数据变动触发notify 函数，再调用订阅者的 update 方法。</p>
+<p>  图中可以看出，当执行 new Vue() 时，Vue 就进入了初始化阶段，一方面Vue 会遍历 data 选项中的属性，并用 Object.defineProperty 将它们转为 getter/setter，实现数据变化监听功能；另一方面，Vue 的指令编译器Compile 对元素节点的指令进行扫描和解析，初始化视图，并订阅Watcher 来更新视图， 此时Wather 会将自己添加到消息订阅器中(Dep),初始化完毕。</p>
+<p>  当数据发生变化时，Observer 中的 setter 方法被触发，setter 会立即调用Dep.notify()，Dep 开始遍历所有的订阅者，并调用订阅者的 update 方法，订阅者收到通知后对视图进行相应的更新。</p>
+<p><a href="http://www.cnblogs.com/onepixel/p/6034307.html" target="_blank" rel="external">Vue.js 和 MVVM 小细节</a></p>
+<h2 id="安装nodejs环境"><a href="#安装nodejs环境" class="headerlink" title="安装nodejs环境"></a>安装nodejs环境</h2><p><img src="http://oo6is6uyg.bkt.clouddn.com/node.jpg" alt="Git"></p>
+<h3 id="关于node"><a href="#关于node" class="headerlink" title="关于node"></a>关于node</h3><blockquote>
+<ul>
+<li>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</li>
+<li>Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.</li>
+<li>Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</li>
+</ul>
+</blockquote>
+<h4 id="可以总结为下面几点"><a href="#可以总结为下面几点" class="headerlink" title="可以总结为下面几点"></a>可以总结为下面几点</h4><p><img src="http://oo6is6uyg.bkt.clouddn.com/node1.jpg" alt="Node"></p>
+<h3 id="安装-CentOs-6-5"><a href="#安装-CentOs-6-5" class="headerlink" title="安装( CentOs 6.5)"></a>安装( CentOs 6.5)</h3><h4 id="获得源码包-Latest-LTS-Version-v6-10-2-includes-npm-3-10-10"><a href="#获得源码包-Latest-LTS-Version-v6-10-2-includes-npm-3-10-10" class="headerlink" title="获得源码包 Latest LTS Version: v6.10.2 (includes npm 3.10.10)"></a>获得源码包 Latest LTS Version: v6.10.2 (includes npm 3.10.10)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x86.tar.xz</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载node</a></p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压.xz获得tar包</span></div><div class="line">$ xz <span class="_">-d</span> node-v6.10.2-linux-x86.tar.xz</div><div class="line"><span class="comment"># 解压tar包</span></div><div class="line">$ tar xvf node-v6.10.2-linux-x86.tar</div></pre></td></tr></table></figure>
+<h4 id="将bin文件夹添加到用户环境变量"><a href="#将bin文件夹添加到用户环境变量" class="headerlink" title="将bin文件夹添加到用户环境变量"></a>将bin文件夹添加到用户环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; vim .bashrc</div><div class="line"><span class="comment"># 把你的bin文件目录添加到$PATH</span></div><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/your_path/node-v6.10.2-linux-x86/bin"</span></div><div class="line">$ <span class="built_in">source</span> .bashrc</div><div class="line"><span class="comment"># 查看Node</span></div><div class="line">$ node --help</div><div class="line"><span class="comment"># 一起安装的npm</span></div><div class="line">$ npm --help</div></pre></td></tr></table></figure>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/node.png" alt="添加bin目录到环境变量"></p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><pre><code>v-if,v-for,v-on,v-bind,v-model
+</code></pre><p><a href="https://cn.vuejs.org/v2/api/#指令" target="_blank" rel="external">Vue.js指令</a></p>
+<h2 id="vue-cli何物"><a href="#vue-cli何物" class="headerlink" title="vue-cli何物"></a>vue-cli何物</h2><p>Vue-cli是Vue的脚手架工具</p>
+<blockquote>
+<p>主要作用：目录结构、本地调试、代码部署、热加载、单元测试</p>
+</blockquote>
+<p>安装</p>
+<pre><code>#vue-cli
+npm inastll -g vue-cli
+
+#初始化
+vue init webpack vuenews
+
+# 可以一直回车 最后两个no
+
+# 安装所需要的依赖. 
+cd vuenews &amp;&amp; npm install
+
+npm install vue-resource --save
+
+# 运行服务 打开 http://localhost:8080/#/ 
+npm run dev
+</code></pre><h2 id="入手组件compentent"><a href="#入手组件compentent" class="headerlink" title="入手组件compentent"></a>入手组件compentent</h2><p>组件的生命周期</p>
+<p><a href="https://cn.vuejs.org/v2/guide/instance.html" target="_blank" rel="external">组件的生命周期</a></p>
+<p><img src="http://oo6is6uyg.bkt.clouddn.com/lifecycle.png" alt="image"></p>
+<p>src 目录结构</p>
+<pre><code>.
+├── App.vue  #父组件
+├── assets
+│   └── logo.png
+├── components  #子组件
+│   ├── Newslist.vue
+│   └── SourceSelection.vue
+└── main.js # 入口文件
+</code></pre><p>  App.vue</p>
+<pre><code>&lt;template&gt;
+    &lt;div class=&quot;container&quot; id=&quot;app&quot;&gt;
+        &lt;SourceSelection v-on:sourceChanged=&quot;setSource&quot;&gt;&lt;/SourceSelection&gt;
+        &lt;Newslist v-bind:source=&quot;source&quot;&gt;&lt;/Newslist&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import SourceSelection from &apos;./components/SourceSelection&apos;
+    import Newslist from &apos;./components/Newslist&apos;
+
+    export default {
+        name: &apos;app&apos;,
+        components: {
+            SourceSelection,
+            Newslist
+        },
+        data(){
+           return {
+               source: &quot;&quot;
+           }
+        },
+        methods: {
+            //自定义事件sourceChanged 调用,
+            //子组件触发事件　this.$emit(sourceChanged,source)
+            setSource : function (source) {
+                this.source = source;
+            }
+        }
+
+    }
+&lt;/script&gt;
+
+&lt;style&gt;
+    #app {
+        padding-top: 20px;
+
+    }
+&lt;/style&gt;
+</code></pre><h2 id="子组件的挂载到父组件"><a href="#子组件的挂载到父组件" class="headerlink" title="子组件的挂载到父组件"></a>子组件的挂载到父组件</h2><pre><code># 在父组件中引入子组件
+
+# ES2015 的写法
+
+import SourceSelection from &apos;./components/SourceSelection&apos;
+import Newslist from &apos;./components/Newslist&apos;
+
+# 在子组件
+
+export default{
+    name : &apos;sourceselection&apos;,
+    data () {
+        return {
+            sources : [],
+            source : &apos;&apos;
+        }
+
+    },
+    methods: {
+
+    },
+    created: function () {
+
+    }
+
+}
+
+# 在父组件vm中写入
+
+components: {
+            SourceSelection,
+            Newslist
+        },
+</code></pre><h2 id="父子组件数据传递"><a href="#父子组件数据传递" class="headerlink" title="父子组件数据传递"></a>父子组件数据传递</h2><h3 id="父组件vm写入"><a href="#父组件vm写入" class="headerlink" title="父组件vm写入"></a>父组件vm写入</h3><pre><code>data(){
+       return {
+           source: &quot;&quot;
+       }
+    },
+</code></pre><h3 id="子组件vm写入"><a href="#子组件vm写入" class="headerlink" title="子组件vm写入"></a>子组件vm写入</h3><pre><code>props: [&apos;source&apos;],
+</code></pre><h2 id="父子组件通信之自定义事件"><a href="#父子组件通信之自定义事件" class="headerlink" title="父子组件通信之自定义事件"></a>父子组件通信之自定义事件</h2><h3 id="第一步：父组件初始化数据"><a href="#第一步：父组件初始化数据" class="headerlink" title="第一步：父组件初始化数据"></a>第一步：父组件初始化数据</h3><pre><code>data(){
+       return {
+           source: &quot;&quot;
+       }
+    },
+</code></pre><h3 id="第二步：在父组件中设置方法"><a href="#第二步：在父组件中设置方法" class="headerlink" title="第二步：在父组件中设置方法"></a>第二步：在父组件中设置方法</h3><pre><code>methods: {
+        //自定义事件sourceChanged 调用,
+        //子组件触发事件　this.$emit(sourceChanged,source)
+        setSource : function (source) {
+            this.source = source;
+        }
+    }
+</code></pre><p>###第三步触发这个方法 </p>
+<ul>
+<li><p>在子组件中设置一个自定义事件 </p>
+<pre><code>&lt;SourceSelection v-on:sourceChanged=&quot;setSource&quot;&gt;&lt;/SourceSelection&gt;
+</code></pre></li>
+</ul>
+<ul>
+<li><p>sourceChanged是一个自定义事件名称。<br>在子组件中通过this.$emit(“事件名”,参数)来触发父组件的事件</p>
+<pre><code>this.$emit(&apos;sourceChanged&apos;, this.source.id);
+</code></pre></li>
+</ul>
+<h2 id="发送Http请求vue-resouce"><a href="#发送Http请求vue-resouce" class="headerlink" title="发送Http请求vue-resouce"></a>发送Http请求vue-resouce</h2><p><a href="https://github.com/pagekit/vue-resource/blob/develop/docs/http.md" target="_blank" rel="external">vue-resouce</a></p>
+<pre><code>methods: {
+        updateSource: function(source) {
+            this.$http.get(&apos;https://newsapi.org/v1/articles?source=&apos; + source + &apos;&amp;apikey=1126b7ebda004eb7b9d2bcae1cfcc5ba&apos;)
+                .then((response)=&gt;{
+                    this.articles = response.data.articles;
+                })
+        }
+    },
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -268,9 +567,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T12:22:39+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T12:22:39+08:00">
                 2017-07-30
               </time>
             
@@ -311,7 +610,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/30/sunday/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -393,9 +692,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T20:59:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T20:59:31+08:00">
                 2017-07-23
               </time>
             
@@ -436,7 +735,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/23/memcached/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -518,9 +817,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-22T09:16:52+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T09:16:52+08:00">
                 2017-07-22
               </time>
             
@@ -561,7 +860,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/22/git/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -643,9 +942,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T19:37:15+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T19:37:15+08:00">
                 2017-04-20
               </time>
             
@@ -686,7 +985,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/20/Node/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -768,9 +1067,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T19:36:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T19:36:17+08:00">
                 2017-04-20
               </time>
             
@@ -811,7 +1110,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/20/blog/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -893,9 +1192,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-10T18:13:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T18:13:48+08:00">
                 2017-04-10
               </time>
             
@@ -914,7 +1213,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -958,7 +1257,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/10/Lamp/">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1040,9 +1339,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-09T13:51:52+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-09T13:51:52+08:00">
                 2017-04-09
               </time>
             
@@ -1083,7 +1382,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/09/hello-world/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1164,8 +1463,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -1176,7 +1475,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">分类</span>
               
             </div>
           
@@ -1187,7 +1486,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">标签</span>
               
             </div>
           
@@ -1244,11 +1543,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
