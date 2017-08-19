@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-19T09:18:38.601Z</updated>
+  <updated>2017-08-19T09:21:58.506Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Vue.js</title>
     <link href="http://yoursite.com/2017/08/19/vuenews/"/>
     <id>http://yoursite.com/2017/08/19/vuenews/</id>
-    <published>2017-08-19T09:18:39.047Z</published>
-    <updated>2017-08-19T09:18:38.601Z</updated>
+    <published>2017-08-19T09:21:58.663Z</published>
+    <updated>2017-08-19T09:21:58.506Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Vue-js简介"><a href="#Vue-js简介" class="headerlink" title="Vue.js简介"></a>Vue.js简介</h2><blockquote>
 <p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
@@ -291,8 +291,7 @@ components: {
             this.source = source;
         }
     }
-</code></pre><p>###第三步触发这个方法 </p>
-<ul>
+</code></pre><h3 id="第三步触发这个方法"><a href="#第三步触发这个方法" class="headerlink" title="第三步触发这个方法"></a>第三步触发这个方法</h3><ul>
 <li><p>在子组件中设置一个自定义事件 </p>
 <pre><code>&lt;SourceSelection v-on:sourceChanged=&quot;setSource&quot;&gt;&lt;/SourceSelection&gt;
 </code></pre></li>
