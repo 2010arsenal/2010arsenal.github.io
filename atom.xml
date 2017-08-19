@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-19T09:05:26.617Z</updated>
+  <updated>2017-08-19T09:07:02.541Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,13 +19,13 @@
     <title></title>
     <link href="http://yoursite.com/2017/08/19/vuenews/"/>
     <id>http://yoursite.com/2017/08/19/vuenews/</id>
-    <published>2017-08-19T09:05:26.713Z</published>
-    <updated>2017-08-19T09:05:26.617Z</updated>
+    <published>2017-08-19T09:07:02.955Z</published>
+    <updated>2017-08-19T09:07:02.541Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Vue-js简介"><a href="#Vue-js简介" class="headerlink" title="Vue.js简介"></a>Vue.js简介</h2><blockquote>
 <p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
 </blockquote>
-<p><a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="external">Vue.js文档</a></p>
+<p><a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="external">Vue.js文档</a><br><a id="more"></a></p>
 <h2 id="MVVM与Vue-js"><a href="#MVVM与Vue-js" class="headerlink" title="MVVM与Vue.js"></a>MVVM与Vue.js</h2><ul>
 <li>MVVM采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。Angular 和 Ember 都采用这种模式。<br><img src="http://oo6is6uyg.bkt.clouddn.com/bg2015020110.png" alt="image"><br><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">MVC，MVP 和 MVVM 的图示</a></li>
 </ul>
@@ -205,7 +205,10 @@ components: {
     
     <summary type="html">
     
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;Vue-js简介&quot;&gt;&lt;a href=&quot;#Vue-js简介&quot; class=&quot;headerlink&quot; title=&quot;Vue.js简介&quot;&gt;&lt;/a&gt;Vue.js简介&lt;/h2
+      &lt;h2 id=&quot;Vue-js简介&quot;&gt;&lt;a href=&quot;#Vue-js简介&quot; class=&quot;headerlink&quot; title=&quot;Vue.js简介&quot;&gt;&lt;/a&gt;Vue.js简介&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://cn.vuejs.org/v2/api/#选项-生命周期钩子&quot;&gt;Vue.js文档&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
